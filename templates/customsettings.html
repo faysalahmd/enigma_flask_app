@@ -1,0 +1,140 @@
+                        <div class="row">
+                        <div class="col-sm-6">
+                            <span class="section_title">Rotor/Ring Settings</span>
+                        </div>
+                        <div class="col-sm-6 rightened">
+                            <button type="button" id="btn_default_settings" class="btn btn-sm btn-outline-warning " data-toggle="modal" data-target="#myModal">Load Settings from Image</button>
+                        </div>
+
+                    </div>
+                    <br />
+                    <div class="row bottom_bordered">
+                        <div class="col-md-4 col-sm-3 col-xs-3">
+
+                        </div>
+                        <div class="mx-auto">
+                            Rotor 3
+                        </div>
+                        <div class="mx-auto">
+                            Rotor 2
+                        </div>
+                        <div class="mx-auto">
+                            Rotor 1
+                        </div>
+                    </div>
+                    <div class="row bottom_bordered rightened">
+                        <div class="col-md-4 col-sm-3 col-xs-3">
+                            Rotor Type:
+                        </div>
+                        <div class="mx-auto">
+                            <select class="form-control-sm" required id="R3_type" name="R3_type">
+                                {% include 'rotor_type.html' %}
+                            </select>
+                        </div>
+                        <div class="mx-auto" >
+                            <select class="form-control-sm" required id="R2_type" name="R2_type">
+                                {% include 'rotor_type.html' %}
+                            </select>
+                        </div>
+                        <div class="mx-auto">
+                            <select class="form-control-sm" required id="R1_type" name="R1_type">
+                                {% include 'rotor_type.html' %}
+                            </select>
+                        </div>
+                    </div>
+
+                    <div class="row bottom_bordered rightened">
+                        <div class="col-md-4 col-sm-3 col-xs-3">
+                            Ring Setting:
+                        </div>
+                        <div class="mx-auto">
+                            <select class="form-control-sm" required id="R3_ring" name="R3_ring">
+                                {% include 'ring_settings.html' %}
+                            </select>
+                        </div>
+                        <div class="mx-auto">
+                            <select class="form-control-sm" required id="R3_ring" name="R2_ring">
+                                {% include 'ring_settings.html' %}
+                            </select>
+                        </div>
+                        <div class="mx-auto">
+                            <select class="form-control-sm" required id="R3_ring" name="R1_ring">
+                                {% include 'ring_settings.html' %}
+                            </select>
+                        </div>
+                    </div>
+
+                    <div class="row bottom_bordered rightened">
+                        <div class="col-md-4 col-sm-3 col-xs-3">
+                            Initial Position:
+                        </div>
+                        <div class="mx-auto">
+                            <select class="form-control-sm" required name="r3_init_position">
+                                {% include 'ring_settings.html' %}
+                            </select>
+                        </div>
+                        <div class="mx-auto">
+                            <select class="form-control-sm" required name="r2_init_position">
+                                {% include 'ring_settings.html' %}
+                            </select>
+                        </div>
+                        <div class="mx-auto">
+                            <select class="form-control-sm" required name="r1_init_position">
+                                {% include 'ring_settings.html' %}
+                            </select>
+                        </div>
+                    </div>
+
+                    <div class="row bottom_bordered">
+                        <div class="col-md-4 col-sm-3 col-xs-3  rightened">
+                            Turnover Point:
+                        </div>
+                        <div class="mx-auto">
+                            <select class="form-control-sm" required id="r3_turnover" name="r3_turnover">
+                                <option value="E">E</option>
+                            </select>
+                        </div>
+                        <div class="mx-auto">
+                            <select class="form-control-sm" required id="r2_turnover" name="r2_turnover">
+                                <option value="E">E</option>
+                            </select>
+                        </div>
+                        <div class="mx-auto">
+                            <select class="form-control-sm" required id="r1_turnover" name="r1_turnover">
+                                <option value="Q">Q</option>
+                            </select>
+                        </div>
+                    </div>
+
+                    <div class="row bottom_bordered">
+                        <div class="col-md-4 col-sm-3 col-xs-3 rightened">
+                            UKW Type:
+                        </div>
+                        <div class="col-md-4 col-sm-4 col-xs-4 text-center">
+                            <input class="form-check-input" type="radio" name="UKW" id="ukwB" value="B" checked>
+                            <label class="form-check-label" for="ukwB">UKW-B</label>
+                        </div>
+                        <div class="col-md-4 col-sm-5 col-xs-5 text-center">
+                            <input class="form-check-input" type="radio" name="UKW" id="ukwC" value="C">
+                            <label class="form-check-label" for="ukwC">UKW-C</label>
+                        </div>
+                    </div>
+                    <hr />
+                    <div class="row">
+                        <div class="col-sm-6">
+                            <span class="section_title">Plug Board</span>
+                        </div>
+                        <div class="col-sm-6 rightened">
+                            <button type="button" id="btn_reset" class="btn btn-sm btn-outline-warning ">Reset</button>
+                        </div>
+                    </div>
+                    <div class="row plugboard">
+                            {% include 'plugboard.html' %}
+                    </div>
+                    <br />
+                     <div class="row" >
+                         <div class="col-md-12">
+
+                             <input type="text" name="plugboard_data" id="plugboard_data" value="" class="form-control" readonly />
+                         </div>
+                    </div>

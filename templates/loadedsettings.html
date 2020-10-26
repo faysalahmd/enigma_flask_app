@@ -1,0 +1,135 @@
+                    <div class="row">
+                        <div class="col-sm-6">
+                            <span class="section_title">Rotor/Ring Settings</span>
+                        </div>
+                        <div class="col-sm-6 rightened">
+
+                        </div>
+
+                    </div>
+                    <br />
+                    <div class="row bottom_bordered">
+                        <div class="col-md-4 col-sm-3 col-xs-3">
+
+                        </div>
+                        <div class="mx-auto">
+                            Rotor 3
+                        </div>
+                        <div class="mx-auto">
+                            Rotor 2
+                        </div>
+                        <div class="mx-auto">
+                            Rotor 1
+                        </div>
+                    </div>
+                    <div class="row bottom_bordered rightened">
+                        <div class="col-md-4 col-sm-3 col-xs-3">
+                            Rotor Type:
+                        </div>
+                        <div class="mx-auto">
+                            <select class="form-control-sm" required id="R3_type" name="R3_type" readonly="">
+                                <option selected value="{{session['r3_type']}}">{{session['r3_type']}}</option>
+                            </select>
+                        </div>
+                        <div class="mx-auto" >
+                            <select class="form-control-sm" required id="R2_type" name="R2_type" readonly="">
+                                <option selected value="{{session['r2_type']}}">{{session['r2_type']}}</option>
+                            </select>
+                        </div>
+                        <div class="mx-auto">
+                            <select class="form-control-sm" required id="R1_type" name="R1_type" readonly="">
+                                <option selected value="{{session['r1_type']}}">{{session['r1_type']}}</option>
+                            </select>
+                        </div>
+                    </div>
+
+                    <div class="row bottom_bordered rightened">
+                        <div class="col-md-4 col-sm-3 col-xs-3">
+                            Ring Setting:
+                        </div>
+                        <div class="mx-auto">
+                            <select class="form-control-sm" required id="R3_ring" name="R3_ring">
+                                <option selected value="{{session['r3_ring']}}">{{session['r3_ring']}}</option>
+                            </select>
+                        </div>
+                        <div class="mx-auto">
+                            <select class="form-control-sm" required id="R3_ring" name="R2_ring">
+                                <option selected value="{{session['r2_ring']}}">{{session['r2_ring']}}</option>
+                            </select>
+                        </div>
+                        <div class="mx-auto">
+                            <select class="form-control-sm" required id="R3_ring" name="R1_ring">
+                                <option selected value="{{session['r1_ring']}}">{{session['r1_ring']}}</option>
+                            </select>
+                        </div>
+                    </div>
+
+                    <div class="row bottom_bordered rightened">
+                        <div class="col-md-4 col-sm-3 col-xs-3">
+                            Initial Position:
+                        </div>
+                        <div class="mx-auto">
+                            <select class="form-control-sm" required name="r3_init_position">
+                                <option selected value="{{session['r3_init_pos']}}">{{session['r3_init_pos']}}</option>
+                            </select>
+                        </div>
+                        <div class="mx-auto">
+                            <select class="form-control-sm" required name="r2_init_position">
+                                <option selected value="{{session['r2_init_pos']}}">{{session['r2_init_pos']}}</option>
+                            </select>
+                        </div>
+                        <div class="mx-auto">
+                            <select class="form-control-sm" required name="r1_init_position">
+                                <option selected value="{{session['r1_init_pos']}}">{{session['r1_init_pos']}}</option>
+                            </select>
+                        </div>
+                    </div>
+
+                    <div class="row bottom_bordered">
+                        <div class="col-md-4 col-sm-3 col-xs-3  rightened">
+                            Turnover Point:
+                        </div>
+                        <div class="mx-auto">
+                            <select class="form-control-sm" required id="r3_turnover" name="r3_turnover">
+                                <option value="E">E</option>
+                            </select>
+                        </div>
+                        <div class="mx-auto">
+                            <select class="form-control-sm" required id="r2_turnover" name="r2_turnover">
+                                <option value="E">E</option>
+                            </select>
+                        </div>
+                        <div class="mx-auto">
+                            <select class="form-control-sm" required id="r1_turnover" name="r1_turnover">
+                                <option value="Q">Q</option>
+                            </select>
+                        </div>
+                    </div>
+
+                    <div class="row bottom_bordered">
+                        <div class="col-md-4 col-sm-3 col-xs-3 rightened">
+                            UKW Type:
+                        </div>
+
+                        <div class="col-md-4 col-sm-4 col-xs-4 text-center">
+                            <input class="form-check-input" type="radio" name="UKW" id="ukwB" value="{{ session['ukw'] }}" checked/>
+                            <label class="form-check-label" for="ukwB">UKW-{{ session['ukw'] }}</label>
+                        </div>
+
+                    </div>
+                    <hr />
+                    <div class="row">
+                        <div class="col-sm-6">
+                            <span class="section_title">Plug Board</span>
+                        </div>
+                        <div class="col-sm-6 rightened">
+
+                        </div>
+                    </div>
+                     <div class="row" >
+                         <div class="col-md-12">
+                             <input type="text" name="plugboard_data" id="plugboard_data" value="{{ session['plug_board'] }}" class="form-control" readonly />
+                             <br />
+                             <a href="resetsettings"><button type="button" id="btn_reset_settings" class="btn btn-sm btn-danger ">Reset Settings</button></a>
+                         </div>
+                    </div>

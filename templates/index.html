@@ -1,0 +1,144 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <title>Enigma M3</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="description" content="">
+    <meta name="author" content="">
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='css/bootstrap.css') }}">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/all.min.css') }}">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/main.css') }}">
+</head>
+    <body>
+    {% with messages = get_flashed_messages() %}
+      {% if messages %}
+
+        {% for message in messages %}
+
+            <div class="alert alert-light" role="alert">
+              {{ message }}
+            </div>
+        {% endfor %}
+
+      {% endif %}
+    {% endwith %}
+    {% block body %}{% endblock %}
+    <div class="container">
+
+        <form action="" method="post" enctype="multipart/form-data">
+        <div class="row">
+            <div class="col-md-5">
+                <div class="section">
+
+                    {% if session['r1_type'] %}
+                        {% include 'loadedsettings.html' %}
+                    {% else %}
+                        {% include 'customsettings.html' %}
+                    {% endif %}
+
+                </div>
+
+
+            </div>
+            <div class="col-md-2">
+                <div class="header">
+                    <img src="{{ url_for('static', filename='images/enigma_logo.svg') }}" alt="Enigma Logo" description="Enigma M3" class="logo"/>
+                </div>
+            </div>
+            <div class="col-md-5">
+                <div class="section">
+                    <div class="row">
+                        <div class="col-md-4 col-sm-3 col-xs-3 rightened">
+                            <b>Input Format:</b>
+                        </div>
+                        <div class="col-md-4 col-sm-4 col-xs-4 text-center">
+                            <input class="form-check-input" type="radio" name="input_format" id="input_str" value="str" checked>
+                            <label class="form-check-label" for="input_str">String</label>
+                        </div>
+                        <div class="col-md-4 col-sm-5 col-xs-5 text-center">
+                            <input class="form-check-input" type="radio" name="input_format" id="input_img" value="img">
+                            <label class="form-check-label" for="input_img">Image</label>
+                        </div>
+
+                    </div>
+                    <hr />
+                    <textarea class="form-control" pattern="[a-zA-Z]+" id="input_string" name="input_string" placeholder="Write Input String" ></textarea>
+                    <input type="file" name="input_image" class="form-control" id="input_image" name="input_image"  style="display:none"></input>
+                    <br />
+                    <div class="row">
+                        <div class="col-md-4 col-sm-3 col-xs-3 rightened">
+                            Encode Format :
+                        </div>
+                        <div class="col-md-4 col-sm-4 col-xs-4 text-center">
+                            <input class="form-check-input" type="radio" name="enc_format" id="en_str" value="str" checked>
+                            <label class="form-check-label" for="en_str">String</label>
+                        </div>
+                        <div class="col-md-4 col-sm-5 col-xs-5 text-center">
+                            <input class="form-check-input" type="radio" name="enc_format" id="en_img" value="img">
+                            <label class="form-check-label" for="en_img">Image</label>
+                        </div>
+
+                    </div>
+                    <div class="row">
+                        <div class="col-md-12">
+                            <span class="badge badge-secondary"><i class="fa fa-info-circle"></i> String: Output given as a string.</span>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-md-12">
+                            <span class="badge badge-secondary"><i class="fa fa-info-circle"></i> Image: Output as two images, settings image and data image.</span>
+                        </div>
+                    </div>
+                    <br />
+                    <div class="row" id="output_files" style="display: none">
+                        <div class="col-md-4">
+                            Settings Image
+                        </div>
+                        <div class="col-md-8">
+                            <input type="file" name="setings_image" class="form-control" id="setings_image" name="input_image"  />
+                        </div>
+                        <br /> <br />
+                        <div class="col-md-4">
+                            Data Image
+                        </div>
+                        <div class="col-md-8">
+                            <input type="file" name="data_image" class="form-control" id="data_image" name="input_image"   />
+                        </div>
+                    </div>
+                    <br />
+
+                    <button type="submit" id="btn_encode" class="btn btn-outline-primary" >Encode Data</button>
+                    <hr />
+                    <span class="section_title">Output</span>
+                    <hr />
+
+                    {% if img_data is defined %}
+                    <div class="row">
+                        <div class="col-md-6">
+                            <b>Data Image</b>
+                            <img src="static/{{img_data.data_image}}" class="img-fluid"  />
+                        </div>
+                        <div class="col-md-6">
+                            <b>Settings Image</b>
+                            <img src="static/{{img_data.setting_image}}" class="img-fluid" />
+                        </div>
+                    </div>
+
+                    {% else %}
+                    <textarea class="form-control" disabled name="ouput_string" placeholder="Encoded Output">{% if data is defined %}{{ data.output }}{% endif %}</textarea>
+                    {% endif %}
+                </div>
+            </div>
+        </div>
+        </form>
+
+    </div>
+    {% include 'importmodal.html' %}
+    </body>
+    <script src="{{ url_for('static', filename='js/jquery.js') }}"></script>
+    <script src="{{ url_for('static', filename='js/popper.js') }}"></script>
+    <script src="{{ url_for('static', filename='js/all.min.js') }}"></script>
+    <script src="{{ url_for('static', filename='js/bootstrap.js') }}"></script>
+    <script src="{{ url_for('static', filename='js/form.js') }}"></script>
+</html>
